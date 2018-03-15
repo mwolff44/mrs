@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django_humanize',
 
     'django.contrib.auth',
+    'jet',
     'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

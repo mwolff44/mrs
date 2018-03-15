@@ -21,6 +21,7 @@ urlpatterns = [
     path('contact/', include('contact.urls', namespace='contact')),
     path('mrsrequest/', include('mrsrequest.urls', namespace='mrsrequest')),
     path('institution/', include('institution.urls', namespace='institution')),
+    path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
 ]
 
