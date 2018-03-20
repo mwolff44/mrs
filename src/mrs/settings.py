@@ -55,6 +55,7 @@ INSTALLED_APPS = [
 
     'django.contrib.auth',
     'jet',
+    'jet.dashboard',
     'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -73,6 +74,7 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
 ]
 
+JET_INDEX_DASHBOARD = 'mrs.dashboard.CustomIndexDashboard'
 ROOT_URLCONF = 'mrs.urls'
 
 TEMPLATES = [
