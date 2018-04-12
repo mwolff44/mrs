@@ -183,11 +183,9 @@ class MRSRequestCreateView(generic.TemplateView):
 
 
 class MRSRequestAdminBaseView(crudlfap.UpdateView):
-    def get_object(self):
-        obj = super().get_object()
-        if obj.status:
-            raise Exception()
-        return obj
+    def get_allowed(self):
+        if super().get_allowed():
+            return not self.object.status
 
     def form_valid(self, form):
         self.object.status_user = self.request.user
@@ -235,7 +233,7 @@ class MRSRequestValidateView(MRSRequestAdminBaseView):
         return reverse('admin:mrsrequest_mrsrequest_changelist')
 
 
-class MRSRequestRejectView(crudlfap.UpdateView):
+class MRSRequestRejectView(MRSRequestAdminBaseView):
     form_class = MRSRequestRejectForm
     template_name = 'mrsrequest/mrsrequest_reject.html'
     action_name = 'Rejeter'
