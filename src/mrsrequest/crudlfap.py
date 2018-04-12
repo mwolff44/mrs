@@ -31,7 +31,7 @@ class MRSRequestListView(crudlfap.FilterTables2ListView):
         ),
     )
 
-    table_sequence=(
+    table_sequence = (
         'creation_datetime',
         'display_id',
         'first_name',
