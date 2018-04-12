@@ -182,19 +182,7 @@ class MRSRequestCreateView(generic.TemplateView):
         ]
 
 
-class MRSRequestAdminBaseView(generic.UpdateView):
-    model = MRSRequest
-
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_staff:
-            return http.HttpResponseRedirect(
-                '{}?next={}'.format(
-                    reverse('admin:login'),
-                    request.get_full_path(),
-                )
-            )
-        return super().dispatch(request, *args, **kwargs)
-
+class MRSRequestAdminBaseView(crudlfap.UpdateView):
     def get_object(self):
         obj = super().get_object()
         if obj.status:
@@ -207,7 +195,7 @@ class MRSRequestAdminBaseView(generic.UpdateView):
         return super().form_valid(form)
 
 
-class MRSRequestValidateView(crudlfap.UpdateView):
+class MRSRequestValidateView(MRSRequestAdminBaseView):
     form_class = MRSRequestValidateForm
     template_name = 'mrsrequest/mrsrequest_validate.html'
     action_name = 'Valider'
