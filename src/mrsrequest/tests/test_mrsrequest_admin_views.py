@@ -4,9 +4,6 @@ from crudlfap import crudlfap
 from crudlfap_auth.crudlfap import User
 
 from mrsrequest.models import MRSRequest
-from mrsrequest.views import (
-    MRSRequestValidateView,
-)
 
 
 @pytest.fixture
