@@ -1,13 +1,11 @@
-// Add our controllers to crudlfap's
-
 import { Application } from 'stimulus'
 import { definitionsFromContext } from 'stimulus/webpack-helpers'
 import M from 'materialize-css'
 import 'crudlfap/js/style.sass'
 
 (() => {
-  var Turbolinks = require('turbolinks')
-  Turbolinks.start()
+  window.Turbolinks = require('turbolinks')
+  window.Turbolinks.start()
 }).bind(window)()
 
 const application = Application.start()
