@@ -183,6 +183,8 @@ class MRSRequestCreateView(generic.TemplateView):
 
 
 class MRSRequestAdminBaseView(crudlfap.UpdateView):
+    menus = ['object_detail']
+
     def get_allowed(self):
         if super().get_allowed():
             return not self.object.status
